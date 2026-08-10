@@ -2,7 +2,7 @@
 
 A modern multi-page portfolio built with Python, Django, Bootstrap 5, and custom CSS. It includes seven detailed GitHub case studies, the AMS 2026 conference publication, a professional experience timeline, and a focused repository comparison page.
 
-**Live site:** [prerak-patel-portfolio-production.up.railway.app](https://prerak-patel-portfolio-production.up.railway.app/)
+**Live site:** [prerak-portfolio.up.railway.app](https://prerak-portfolio.up.railway.app/)
 
 Everything runs through Docker. A host Python installation or virtual environment is not required.
 
