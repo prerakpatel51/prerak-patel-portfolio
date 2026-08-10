@@ -1,0 +1,204 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="container-xl position-relative">
+        <div class="row align-items-center min-vh-100 gy-5">
+            <div class="col-lg-7 pt-5">
+                <div class="availability reveal"><span></span> AI/ML researcher · Python developer · Melbourne, Florida</div>
+                <h1 class="hero-title reveal delay-1">Prerak Patel<span>.</span></h1>
+                <p class="hero-role reveal delay-1">Machine learning research and practical software.</p>
+                <p class="hero-copy reveal delay-2">I work on weather forecasting, explainable computer vision, and financial data analysis. I enjoy taking a project from messy data and early experiments to a tested, deployed system.</p>
+                <div class="hero-actions reveal delay-3">
+                    <a href="#work" class="btn btn-accent">View projects <i data-lucide="arrow-down-right"></i></a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=patel.prerak2798%40gmail.com&su=Portfolio%20inquiry" class="text-link" target="_blank" rel="noreferrer">Get in touch <i data-lucide="arrow-up-right"></i></a>
+                </div>
+                <div class="hero-contact-links reveal delay-3" aria-label="Contact and professional profiles">
+                    <a href="https://www.linkedin.com/in/prerakpatel51020021998" target="_blank" rel="noreferrer"><i data-lucide="linkedin"></i><span><small>Connect</small>LinkedIn</span></a>
+                    <a href="https://github.com/prerakpatel51" target="_blank" rel="noreferrer"><i data-lucide="github"></i><span><small>Explore</small>GitHub</span></a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=patel.prerak2798%40gmail.com&su=Portfolio%20inquiry" target="_blank" rel="noreferrer"><i data-lucide="mail"></i><span><small>Email</small>patel.prerak2798@gmail.com</span></a>
+                </div>
+                <div class="hero-microstats reveal delay-3">
+                    <div><strong>{{ project_count }}</strong><span>technical case studies</span></div>
+                    <div><strong>1</strong><span>AMS conference paper</span></div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="portrait-wrap reveal delay-2">
+                    <div class="portrait-frame">
+                        <img src="{% static 'portfolio/images/prerak-patel.png' %}" alt="Professional portrait of Prerak Patel" width="1200" height="1200">
+                    </div>
+                    <div class="portrait-meta">
+                        <span><b>Focus</b> Applied machine learning</span>
+                        <span><b>Based in</b> Melbourne, FL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="scroll-cue" href="#intro" aria-label="Scroll to introduction"><span></span> Scroll to explore</a>
+    </div>
+</section>
+
+<section id="intro" class="section-pad intro-section">
+    <div class="container-xl">
+        <div class="row g-5 align-items-end">
+            <div class="col-lg-4"><p class="section-index reveal">01 / Profile</p></div>
+            <div class="col-lg-8">
+                <p class="statement reveal">I’m interested in work that combines <span>careful research</span> with strong engineering. My projects cover scientific machine learning, explainable AI, time-series analysis, and software that is <span>useful outside the notebook.</span></p>
+                <div class="skill-row reveal">
+                    <span>Generative AI</span><span>Explainable AI</span><span>Computer Vision</span><span>Time Series</span><span>Agentic Systems</span><span>MLOps</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="work" class="section-pad work-section">
+    <div class="container-xl">
+        <div class="section-heading reveal">
+            <div><p class="section-index">02 / Projects</p><h2>Projects.</h2></div>
+            <p>A closer look at what I built, why I built it, the technical decisions I made, and how each project was evaluated.</p>
+        </div>
+        <div class="projects-list">
+            {% for project in projects %}
+            <article class="project-row project-{{ project.accent }} reveal">
+                <a class="project-main" href="{% url 'portfolio:project_detail' project.slug %}" aria-label="View {{ project.title }} case study">
+                    <div class="project-number">{{ project.number }}</div>
+                    <div class="project-icon"><i data-lucide="{{ project.icon }}"></i></div>
+                    <div class="project-copy">
+                        <p>{{ project.eyebrow }} · {{ project.year }}</p>
+                        <h3>{{ project.title }}</h3>
+                        <span>{{ project.summary }}</span>
+                        <div class="project-tags">{% for tag in project.tags|slice:':4' %}<b>{{ tag }}</b>{% endfor %}</div>
+                    </div>
+                    <div class="project-arrow"><i data-lucide="arrow-up-right"></i></div>
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+        <div class="archive-cta reveal">
+            <p>My top seven GitHub repositories, organized in one place.</p>
+            <a href="{% url 'portfolio:project_archive' %}" class="btn btn-outline-portfolio">Browse all {{ project_count }} repositories <i data-lucide="arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<section id="research" class="section-pad research-section">
+    <div class="container-xl">
+        <div class="row g-5">
+            <div class="col-lg-4">
+                <p class="section-index reveal">03 / Publication</p>
+                <h2 class="research-heading reveal">Conference<br><span>research.</span></h2>
+            </div>
+            <div class="col-lg-8">
+                <article class="paper-card reveal">
+                    <div class="paper-topline"><span>AMS / 2026</span><span>Conference paper</span></div>
+                    <h3>{{ publication.title }}</h3>
+                    <p class="paper-authors">{{ publication.authors }}</p>
+                    <p class="paper-abstract">{{ publication.abstract }}</p>
+                    <div class="paper-findings">
+                        {% for finding in publication.findings %}<div><span>0{{ forloop.counter }}</span><p>{{ finding }}</p></div>{% endfor %}
+                    </div>
+                    <div class="paper-footer">
+                        <div><strong>{{ publication.venue }}</strong><span>{{ publication.location }}</span></div>
+                        <a href="{{ publication.paper_url }}" target="_blank" rel="noreferrer" class="round-link" aria-label="Open conference paper"><i data-lucide="arrow-up-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="experience" class="section-pad experience-section">
+    <div class="container-xl">
+        <div class="section-heading reveal">
+            <div><p class="section-index">04 / Experience</p><h2>Research and<br><span>engineering.</span></h2></div>
+            <p>My experience includes academic research, large-scale weather data, generative forecasting models, computer vision, and production Django systems.</p>
+        </div>
+        <div class="timeline">
+            {% for item in experience %}
+            <article class="timeline-item reveal">
+                <div class="timeline-marker"><span></span></div>
+                <div class="timeline-date"><strong>{{ item.date }}</strong><span>{{ item.place }}</span></div>
+                <div class="timeline-content">
+                    <p>{{ item.focus }}</p>
+                    <h3>{{ item.role }}</h3>
+                    <h4>{{ item.company }}</h4>
+                    <ul>{% for bullet in item.bullets %}<li>{{ bullet }}</li>{% endfor %}</ul>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section-pad toolkit-section">
+    <div class="container-xl">
+        <div class="row g-5">
+            <div class="col-lg-4"><p class="section-index reveal">05 / Skills</p><h2 class="reveal">Skills and<br><span>tools.</span></h2><p class="toolkit-intro reveal">I work across research, data, backend engineering, and deployment—enough of the full stack to take an idea into production.</p></div>
+            <div class="col-lg-8">
+                <div class="toolkit-grid reveal">
+                    <div>
+                        <i data-lucide="brain-circuit"></i><h3>Applied ML & optimization</h3>
+                        <p>Designing predictive systems, choosing objectives that match the real problem, and proving performance with disciplined baselines and evaluation.</p>
+                        <ul class="tool-list"><li>Python</li><li>PyTorch</li><li>TensorFlow</li><li>Keras</li><li>Scikit-learn</li><li>XGBoost</li><li>LightGBM</li><li>Random Forest</li><li>Reinforcement learning</li><li>Anomaly detection</li><li>Bayesian optimization</li><li>Grid search</li></ul>
+                    </div>
+                    <div>
+                        <i data-lucide="bot"></i><h3>Generative AI & agents</h3>
+                        <p>Building evidence-grounded LLM applications that retrieve, reason, call tools, coordinate agents, and expose how each result was produced.</p>
+                        <ul class="tool-list"><li>LLMs</li><li>LangChain</li><li>LangGraph</li><li>RAG</li><li>Tool calling</li><li>Prompt engineering</li><li>Planning agents</li><li>FAISS</li><li>Pinecone</li><li>ChromaDB</li><li>Weaviate</li><li>Semantic search</li><li>Embeddings</li><li>OpenAI</li><li>Anthropic</li></ul>
+                    </div>
+                    <div>
+                        <i data-lucide="scan-eye"></i><h3>Explainable AI & vision</h3>
+                        <p>Testing what vision models rely on, how explanations change across domains and contexts, and whether an attribution reflects causal evidence.</p>
+                        <ul class="tool-list"><li>Vision Transformers</li><li>ResNet</li><li>U-Net</li><li>OpenCV</li><li>Captum</li><li>Grad-CAM++</li><li>Integrated Gradients</li><li>LIME</li><li>SHAP</li></ul>
+                    </div>
+                    <div>
+                        <i data-lucide="cloud-lightning"></i><h3>Forecasting & scientific ML</h3>
+                        <p>Modeling time, space, and uncertainty across weather, climate, radar, satellite, and financial signals—from GRUs to diffusion and flow matching.</p>
+                        <ul class="tool-list"><li>Time series</li><li>STL</li><li>GRU / LSTM</li><li>Transformers</li><li>VAE</li><li>Diffusion</li><li>Latent diffusion</li><li>Flow matching</li><li>Spatiotemporal modeling</li><li>Remote sensing</li><li>Geospatial AI</li></ul>
+                    </div>
+                    <div>
+                        <i data-lucide="database-zap"></i><h3>Backend, data & cloud</h3>
+                        <p>Turning models into secure APIs and high-throughput data systems with asynchronous processing, durable storage, and production-ready service boundaries.</p>
+                        <ul class="tool-list"><li>Python</li><li>SQL</li><li>JavaScript</li><li>C++</li><li>Java</li><li>Django</li><li>FastAPI</li><li>REST APIs</li><li>PostgreSQL</li><li>Redis</li><li>Celery</li><li>Kafka</li><li>Spark</li><li>AWS S3</li><li>Lambda</li><li>Glue</li><li>Redshift</li><li>BigQuery</li><li>Hive</li><li>Presto</li><li>HDF5</li><li>xarray</li></ul>
+                    </div>
+                    <div>
+                        <i data-lucide="gauge"></i><h3>MLOps, deployment & scale</h3>
+                        <p>Making experiments reproducible and models observable across Docker, cloud, and multi-GPU HPC environments with restartable, traceable workflows.</p>
+                        <ul class="tool-list"><li>Docker</li><li>Kubernetes</li><li>MLflow</li><li>Slurm</li><li>Multi-GPU DDP</li><li>CI/CD</li><li>Git</li><li>Monitoring</li><li>Observability</li><li>Checkpointing</li><li>Backtesting</li><li>Stress testing</li><li>A/B testing</li><li>Model quantization</li><li>TensorFlow Lite</li></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="personal" class="section-pad personal-section">
+    <div class="container-xl">
+        <div class="section-heading reveal">
+            <div><p class="section-index">06 / Beyond the lab</p><h2>What else<br><span>I care about.</span></h2></div>
+            <p>Work is important, but curiosity is what keeps it interesting. These are the areas I’m exploring alongside research and engineering.</p>
+        </div>
+        <div class="personal-grid">
+            <article class="personal-card personal-card-featured reveal">
+                <div class="personal-card-top"><i data-lucide="store"></i><span>Freelance</span></div>
+                <h3>Simple, useful software for small businesses.</h3>
+                <p>I help small business owners build a clear online presence and reduce repetitive work with focused websites, inquiry and booking flows, lightweight dashboards, and custom automation.</p>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=patel.prerak2798%40gmail.com&su=Small%20business%20project" target="_blank" rel="noreferrer">Discuss a project <i data-lucide="arrow-up-right"></i></a>
+            </article>
+            <article class="personal-card reveal">
+                <div class="personal-card-top"><i data-lucide="chart-candlestick"></i><span>Currently learning</span></div>
+                <h3>Understanding the stock market.</h3>
+                <p>I’m learning how businesses are valued, how markets respond to information, and how financial news, fundamentals, and risk fit together. It also gives useful context to my financial ML research.</p>
+            </article>
+            <article class="personal-card reveal">
+                <div class="personal-card-top"><i data-lucide="book-open"></i><span>Interests</span></div>
+                <h3>Reading, side projects, and learning by building.</h3>
+                <p>I like exploring how products and businesses work, testing new ideas through small projects, and learning technologies by using them on real problems.</p>
+            </article>
+        </div>
+    </div>
+</section>
+{% endblock %}

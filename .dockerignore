@@ -1,0 +1,16 @@
+.git
+.gitignore
+.DS_Store
+.venv
+.vinext
+.wrangler
+__pycache__
+*.py[cod]
+db.sqlite3
+staticfiles
+.env
+.env.*
+node_modules
+Apply_PilotAI
+.playwright-cli
+output

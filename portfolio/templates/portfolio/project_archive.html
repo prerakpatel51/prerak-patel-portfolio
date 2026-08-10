@@ -1,0 +1,39 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}Top GitHub Repositories | Prerak Patel Portfolio{% endblock %}
+
+{% block content %}
+<section class="archive-hero">
+    <div class="container-xl">
+        <p class="eyebrow reveal">Top GitHub repositories / {{ project_count|stringformat:'02d' }}</p>
+        <h1 class="reveal">My top seven<br><span>repositories.</span></h1>
+        <p class="archive-lead reveal">Research and software projects across weather forecasting, explainable AI, computer vision, and applied products.</p>
+        <div class="archive-controls reveal">
+            <label for="projectSearch" class="visually-hidden">Search projects</label>
+            <i data-lucide="search"></i>
+            <input id="projectSearch" type="search" placeholder="Search by project, subject, or technology…" autocomplete="off">
+            <span id="projectResultCount">{{ project_count }} projects</span>
+        </div>
+    </div>
+</section>
+
+<section class="archive-list-section">
+    <div class="container-xl">
+        <div class="archive-table-head"><span>Project</span><span>Focus</span><span>Stack</span><span>Link</span></div>
+        <div class="archive-table" id="projectArchive">
+            {% for item in all_projects %}
+            <article class="archive-row" data-search="{{ item.title|lower }} {{ item.description|lower }} {{ item.language|lower }}">
+                <div><span class="archive-num">{{ forloop.counter|stringformat:'02d' }}</span><strong>{{ item.title }}</strong>{% if item.featured %}<b>Case study</b>{% endif %}</div>
+                <p>{{ item.description }}</p>
+                <span class="archive-language">{{ item.language }}</span>
+                <div class="archive-links">
+                    {% if item.detail_url %}<a href="{% url 'portfolio:project_detail' item.detail_url %}" aria-label="View {{ item.title }} case study"><i data-lucide="book-open"></i></a>{% endif %}
+                    <a href="{{ item.github }}" target="_blank" rel="noreferrer" aria-label="Open {{ item.title }} on GitHub"><i data-lucide="arrow-up-right"></i></a>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+        <p class="no-results" id="noResults" hidden>No projects match that search.</p>
+    </div>
+</section>
+{% endblock %}

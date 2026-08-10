@@ -1,0 +1,105 @@
+{% load static %}
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Prerak Patel’s portfolio: machine learning research, Python engineering, projects, publications, and practical software for small businesses.">
+    <meta name="theme-color" content="#f3f0e7">
+    <meta property="og:title" content="Prerak Patel Portfolio">
+    <meta property="og:description" content="Machine learning research, Python engineering, and practical software built with care.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <title>{% block title %}Prerak Patel Portfolio{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
+</head>
+<body>
+    <div class="page-noise" aria-hidden="true"></div>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <nav class="navbar navbar-expand-lg fixed-top portfolio-nav" aria-label="Primary navigation">
+        <div class="container-xl">
+            <a class="navbar-brand brand-mark" href="{% url 'portfolio:home' %}" aria-label="Prerak Patel home">
+                <span>Prerak Patel</span><i></i>
+            </a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav" aria-controls="mobileNav" aria-label="Open navigation">
+                <i data-lucide="menu"></i>
+            </button>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto align-items-center gap-lg-1">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'portfolio:home' %}#work">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'portfolio:home' %}#research">Research</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'portfolio:home' %}#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'portfolio:home' %}#personal">Freelance & interests</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'portfolio:project_archive' %}">Top repositories</a></li>
+                    <li class="nav-item"><a class="nav-link nav-social" href="https://www.linkedin.com/in/prerakpatel51020021998" target="_blank" rel="noreferrer" aria-label="Prerak Patel on LinkedIn"><i data-lucide="linkedin"></i></a></li>
+                    <li class="nav-item"><a class="nav-link nav-social" href="https://github.com/prerakpatel51" target="_blank" rel="noreferrer" aria-label="Prerak Patel on GitHub"><i data-lucide="github"></i></a></li>
+                    <li class="nav-item ms-lg-2"><a class="btn btn-sm btn-nav" href="https://mail.google.com/mail/?view=cm&fs=1&to=patel.prerak2798%40gmail.com&su=Portfolio%20inquiry" target="_blank" rel="noreferrer">Email me <i data-lucide="send"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+        <div class="offcanvas-header">
+            <h2 class="offcanvas-title brand-mark" id="mobileNavLabel"><span>Prerak Patel</span><i></i></h2>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <a class="mobile-link" data-bs-dismiss="offcanvas" href="{% url 'portfolio:home' %}#work">Projects</a>
+            <a class="mobile-link" data-bs-dismiss="offcanvas" href="{% url 'portfolio:home' %}#research">Research</a>
+            <a class="mobile-link" data-bs-dismiss="offcanvas" href="{% url 'portfolio:home' %}#experience">Experience</a>
+            <a class="mobile-link" data-bs-dismiss="offcanvas" href="{% url 'portfolio:home' %}#personal">Freelance & interests</a>
+            <a class="mobile-link" href="{% url 'portfolio:project_archive' %}">Top repositories</a>
+            <div class="mobile-contact mt-auto">
+                <p>Connect with me</p>
+                <div>
+                    <a href="https://www.linkedin.com/in/prerakpatel51020021998" target="_blank" rel="noreferrer"><i data-lucide="linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/prerakpatel51" target="_blank" rel="noreferrer"><i data-lucide="github"></i> GitHub</a>
+                </div>
+                <a class="btn btn-accent" href="https://mail.google.com/mail/?view=cm&fs=1&to=patel.prerak2798%40gmail.com&su=Portfolio%20inquiry" target="_blank" rel="noreferrer">Email Prerak <i data-lucide="send"></i></a>
+                <span>patel.prerak2798@gmail.com</span>
+            </div>
+        </div>
+    </div>
+
+    <main id="main-content">{% block content %}{% endblock %}</main>
+
+    <footer class="site-footer">
+        <div class="container-xl">
+            <div class="footer-cta">
+                <p class="eyebrow">Research, software, and useful ideas</p>
+                <h2>Let’s work together.<br><span>Tell me what you’re building.</span></h2>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=patel.prerak2798%40gmail.com&su=Portfolio%20inquiry" class="round-link" target="_blank" rel="noreferrer" aria-label="Compose an email to Prerak Patel"><i data-lucide="arrow-up-right"></i></a>
+            </div>
+            <div class="footer-contact-grid">
+                <a href="https://www.linkedin.com/in/prerakpatel51020021998" target="_blank" rel="noreferrer">
+                    <i data-lucide="linkedin"></i><span><small>Professional network</small><strong>LinkedIn</strong></span><i data-lucide="arrow-up-right"></i>
+                </a>
+                <a href="https://github.com/prerakpatel51" target="_blank" rel="noreferrer">
+                    <i data-lucide="github"></i><span><small>Code and experiments</small><strong>GitHub · prerakpatel51</strong></span><i data-lucide="arrow-up-right"></i>
+                </a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=patel.prerak2798%40gmail.com&su=Portfolio%20inquiry" target="_blank" rel="noreferrer">
+                    <i data-lucide="mail"></i><span><small>Direct conversation</small><strong>patel.prerak2798@gmail.com</strong></span><i data-lucide="arrow-up-right"></i>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <p>© {% now "Y" %} Prerak Patel</p>
+                <div>
+                    <a href="https://www.linkedin.com/in/prerakpatel51020021998" target="_blank" rel="noreferrer">LinkedIn</a>
+                    <a href="https://github.com/prerakpatel51" target="_blank" rel="noreferrer">GitHub</a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=patel.prerak2798%40gmail.com&su=Portfolio%20inquiry" target="_blank" rel="noreferrer">Email</a>
+                    <a href="#main-content">Back to top ↑</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <script src="{% static 'portfolio/js/main.js' %}"></script>
+</body>
+</html>
