@@ -11,7 +11,10 @@ class PortfolioViewsTests(TestCase):
         for project in FEATURED_PROJECTS:
             self.assertContains(response, project["title"])
         self.assertContains(response, "Investigating Extreme Precipitation")
-        self.assertContains(response, "Graduate Research Assistant")
+        self.assertContains(response, "HubSpot")
+        self.assertContains(response, "S&amp;P Global")
+        self.assertNotContains(response, "Graduate Research Assistant")
+        self.assertNotContains(response, "MatrixHive")
         self.assertContains(response, "Prerak Patel Portfolio")
         self.assertContains(response, "Simple, useful software for small businesses.")
         self.assertContains(response, "Understanding the stock market.")
