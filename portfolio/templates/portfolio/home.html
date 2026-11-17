@@ -6,10 +6,10 @@
     <div class="container-xl position-relative">
         <div class="row align-items-center min-vh-100 gy-5">
             <div class="col-lg-7 pt-5">
-                <div class="availability reveal"><span></span> AI/ML researcher · Python developer · Melbourne, Florida</div>
+                <div class="availability reveal"><span></span> AI & ML Engineer · Melbourne, Florida</div>
                 <h1 class="hero-title reveal delay-1">Prerak Patel<span>.</span></h1>
-                <p class="hero-role reveal delay-1">Machine learning research and practical software.</p>
-                <p class="hero-copy reveal delay-2">I work on weather forecasting, explainable computer vision, and financial data analysis. I enjoy taking a project from messy data and early experiments to a tested, deployed system.</p>
+                <p class="hero-role reveal delay-1">Agentic AI, applied machine learning, and production software.</p>
+                <p class="hero-copy reveal delay-2">I build AI agents and retrieval systems for CRM workflows at HubSpot, with prior experience developing credit-risk models and data pipelines at S&P Global. My research spans weather forecasting and explainable computer vision, connecting careful experimentation with tested, deployed software.</p>
                 <div class="hero-actions reveal delay-3">
                     <a href="#work" class="btn btn-accent">View projects <i data-lucide="arrow-down-right"></i></a>
                     <a href="https://mail.google.com/mail/?view=cm&fs=1&to=patel.prerak2798%40gmail.com&su=Portfolio%20inquiry" class="text-link" target="_blank" rel="noreferrer">Get in touch <i data-lucide="arrow-up-right"></i></a>
@@ -45,7 +45,7 @@
         <div class="row g-5 align-items-end">
             <div class="col-lg-4"><p class="section-index reveal">01 / Profile</p></div>
             <div class="col-lg-8">
-                <p class="statement reveal">I’m interested in work that combines <span>careful research</span> with strong engineering. My projects cover scientific machine learning, explainable AI, time-series analysis, and software that is <span>useful outside the notebook.</span></p>
+                <p class="statement reveal">My work combines <span>AI engineering and applied research.</span> From CRM agents and credit-risk models to weather forecasting and explainable vision, I build data pipelines, evaluate model behavior, and turn experiments into <span>reliable software.</span></p>
                 <div class="skill-row reveal">
                     <span>Generative AI</span><span>Explainable AI</span><span>Computer Vision</span><span>Time Series</span><span>Agentic Systems</span><span>MLOps</span>
                 </div>
@@ -54,10 +54,33 @@
     </div>
 </section>
 
+<section id="experience" class="section-pad experience-section">
+    <div class="container-xl">
+        <div class="section-heading reveal">
+            <div><p class="section-index">02 / Experience</p><h2>AI and<br><span>machine learning.</span></h2></div>
+            <p>My experience spans agentic AI, retrieval-augmented generation, credit-risk modeling, scalable data pipelines, and production ML systems at HubSpot and S&P Global.</p>
+        </div>
+        <div class="timeline">
+            {% for item in experience %}
+            <article class="timeline-item reveal">
+                <div class="timeline-marker"><span></span></div>
+                <div class="timeline-date"><strong>{{ item.date }}</strong><span>{{ item.place }}</span></div>
+                <div class="timeline-content">
+                    <p>{{ item.focus }}</p>
+                    <h3>{{ item.role }}</h3>
+                    <h4>{{ item.company }}</h4>
+                    <ul>{% for bullet in item.bullets %}<li>{{ bullet }}</li>{% endfor %}</ul>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
 <section id="work" class="section-pad work-section">
     <div class="container-xl">
         <div class="section-heading reveal">
-            <div><p class="section-index">02 / Projects</p><h2>Projects.</h2></div>
+            <div><p class="section-index">03 / Projects</p><h2>Projects.</h2></div>
             <p>A closer look at what I built, why I built it, the technical decisions I made, and how each project was evaluated.</p>
         </div>
         <div class="projects-list">
@@ -88,7 +111,7 @@
     <div class="container-xl">
         <div class="row g-5">
             <div class="col-lg-4">
-                <p class="section-index reveal">03 / Publication</p>
+                <p class="section-index reveal">04 / Publication</p>
                 <h2 class="research-heading reveal">Conference<br><span>research.</span></h2>
             </div>
             <div class="col-lg-8">
@@ -110,28 +133,7 @@
     </div>
 </section>
 
-<section id="experience" class="section-pad experience-section">
-    <div class="container-xl">
-        <div class="section-heading reveal">
-            <div><p class="section-index">04 / Experience</p><h2>AI and<br><span>machine learning.</span></h2></div>
-            <p>My experience spans agentic AI, retrieval-augmented generation, credit-risk modeling, scalable data pipelines, and production ML systems at HubSpot and S&P Global.</p>
-        </div>
-        <div class="timeline">
-            {% for item in experience %}
-            <article class="timeline-item reveal">
-                <div class="timeline-marker"><span></span></div>
-                <div class="timeline-date"><strong>{{ item.date }}</strong><span>{{ item.place }}</span></div>
-                <div class="timeline-content">
-                    <p>{{ item.focus }}</p>
-                    <h3>{{ item.role }}</h3>
-                    <h4>{{ item.company }}</h4>
-                    <ul>{% for bullet in item.bullets %}<li>{{ bullet }}</li>{% endfor %}</ul>
-                </div>
-            </article>
-            {% endfor %}
-        </div>
-    </div>
-</section>
+
 
 <section class="section-pad toolkit-section">
     <div class="container-xl">

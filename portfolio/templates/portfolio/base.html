@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Prerak Patel’s portfolio: machine learning research, Python engineering, projects, publications, and practical software for small businesses.">
+    <meta name="description" content="Prerak Patel’s portfolio: agentic AI, CRM retrieval systems, credit-risk modeling, weather forecasting, and explainable computer vision.">
     <meta name="theme-color" content="#f3f0e7">
     <meta property="og:title" content="Prerak Patel Portfolio">
-    <meta property="og:description" content="Machine learning research, Python engineering, and practical software built with care.">
+    <meta property="og:description" content="Agentic AI, applied machine learning, and production software at HubSpot and S&P Global, alongside research in weather forecasting and explainable vision.">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary">
     <title>{% block title %}Prerak Patel Portfolio{% endblock %}</title>
@@ -30,9 +30,9 @@
             </button>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto align-items-center gap-lg-1">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'portfolio:home' %}#experience">Experience</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'portfolio:home' %}#work">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'portfolio:home' %}#research">Research</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'portfolio:home' %}#experience">Experience</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'portfolio:home' %}#personal">Freelance & interests</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'portfolio:project_archive' %}">Top repositories</a></li>
                     <li class="nav-item"><a class="nav-link nav-social" href="https://www.linkedin.com/in/prerakpatel51020021998" target="_blank" rel="noreferrer" aria-label="Prerak Patel on LinkedIn"><i data-lucide="linkedin"></i></a></li>
@@ -49,9 +49,9 @@
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body d-flex flex-column">
+            <a class="mobile-link" data-bs-dismiss="offcanvas" href="{% url 'portfolio:home' %}#experience">Experience</a>
             <a class="mobile-link" data-bs-dismiss="offcanvas" href="{% url 'portfolio:home' %}#work">Projects</a>
             <a class="mobile-link" data-bs-dismiss="offcanvas" href="{% url 'portfolio:home' %}#research">Research</a>
-            <a class="mobile-link" data-bs-dismiss="offcanvas" href="{% url 'portfolio:home' %}#experience">Experience</a>
             <a class="mobile-link" data-bs-dismiss="offcanvas" href="{% url 'portfolio:home' %}#personal">Freelance & interests</a>
             <a class="mobile-link" href="{% url 'portfolio:project_archive' %}">Top repositories</a>
             <div class="mobile-contact mt-auto">
