@@ -21,7 +21,7 @@ class PortfolioViewsTests(TestCase):
         self.assertContains(response, "03 / Projects")
         self.assertNotContains(response, "Selected projects")
         self.assertContains(response, "https://mail.google.com/mail/?view=cm")
-        self.assertContains(response, "patel.prerak2798@gmail.com")
+        self.assertContains(response, "prerakpatel.eng@gmail.com")
         self.assertContains(response, "https://github.com/prerakpatel51")
         self.assertContains(
             response, "https://www.linkedin.com/in/prerakpatel51020021998"
